@@ -12,16 +12,19 @@
 ### Service user
 
 - /api/v6/user/create
+
 create user info
 call /api/v6/shop/items in the shop Service
 response is {"result":{"userId":"1234", "userName":"vincent"}}
 
 - /api/v6/user/accout/query
+
 query account info for the user
 call /api/v6/shop/order in the shop Service
 response is {"userId":"1234", "detail":{"moneyLeft":52000,"deposit":12000}}
 
 - /health
+
 health checking
 response is { "status":"UP" }
 
