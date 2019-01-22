@@ -1,0 +1,5 @@
+FROM centos:7
+
+ADD shop.py /usr/local/bin
+
+ENTRYPOINT ["python","/usr/local/bin/shop.py", "8090"]

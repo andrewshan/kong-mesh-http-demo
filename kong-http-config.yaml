@@ -1,0 +1,13 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: kong-http-config
+spec:
+  template:
+    metadata:
+      name: kong-http-config
+    spec:
+      containers:
+      - name: kong-http-config
+        image: mashape/kong-enterprise:mesh-http-config
+      restartPolicy: OnFailure
