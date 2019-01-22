@@ -11,60 +11,60 @@
 
 ### Service user
 
-- /api/v6/user/create
+#### /api/v6/user/create
 
 create user info<br/>
 call /api/v6/shop/items in the shop Service<br/>
 response is {"result":{"userId":"1234", "userName":"vincent"}}
 
-- /api/v6/user/accout/query
+#### /api/v6/user/accout/query
 
 query account info for the user<br/>
 call /api/v6/shop/order in the shop Service<br/>
 response is {"userId":"1234", "detail":{"moneyLeft":52000,"deposit":12000}}
 
-- /health
+#### /health
 
 health checking<br/>
 response is { "status":"UP" }
 
 ### Service shop
 
-- /api/v6/shop/items
+#### /api/v6/shop/items
 
 return the shop items info<br/>
 response is {"items": [{"itemId":"001", "itemName":"cloth"}, {"itemId":"002", "itemName":"cloth1"}, {"itemId":"003", "itemName":"cloth2"}]}
 
-- /api/v6/shop/order
+#### /api/v6/shop/order
 
 place a shopping order<br/>
 call /api/v6/promotion/query in the promotion Service<br/>
 response is {"userId": "1234", "itemId": "002" }
 
-- /api/v6/product/deliver
+#### /api/v6/product/deliver
 
 return the product delivery info<br/>
 response is {"itemId": "002", "destination": "shenzhen"}
 
-- /health
+#### /health
 
 health checking<br/>
 response is { "status":"UP" }
 
 ### Service promotion
 
-- /api/v6/promotion/query
+#### /api/v6/promotion/query
 
 query the promotion details<br/>
 response is {"promotions": [{"itemId":"001", "status":"off"}, {"itemId":"002", "status":"on"}, {"itemId":"003", "status":"on"} ]}
 
-- /api/v6/promotion/item/discount
+#### /api/v6/promotion/item/discount
 
 query the discount info for a specific item<br/>
 call /api/v6/product/deliver in the shop Service<br/>
 response is {"discount": "40", "itemId": "002" }
 
-- /health
+#### /health
 
 health checking<br/>
 response is { "status":"UP" }
