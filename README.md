@@ -68,3 +68,40 @@ response is {"discount": "40", "itemId": "002" }
 
 health checking<br/>
 response is { "status":"UP" }
+
+## Testing
+
+### build images
+
+make build-docker-images
+
+### run images
+
+make run
+
+### call service
+
+we can use the clusterIP to invoke the service API
+```
+root@VM-0-14-ubuntu:/home/ubuntu/kong-mesh/kong-mesh-http-demo# curl -v 192.168.255.108:8089/api/v6/user/accout/query
+*   Trying 192.168.255.108...
+* Connected to 192.168.255.108 (192.168.255.108) port 8089 (#0)
+> GET /api/v6/user/accout/query HTTP/1.1
+> Host: 192.168.255.108:8089
+> User-Agent: curl/7.47.0
+> Accept: */*
+> 
+< HTTP/1.1 200 OK
+< Content-Type: application/json
+< Transfer-Encoding: chunked
+< Connection: keep-alive
+< Server: BaseHTTP/0.3 Python/2.7.5
+< Date: Tue, 22 Jan 2019 12:51:10 GMT
+< localIP: 192.168.0.52
+< X-Kong-Upstream-Latency: 30017
+< X-Kong-Proxy-Latency: 1
+< Via: kong/1.0.0rc3
+< 
+* Connection #0 to host 192.168.255.108 left intact
+{"userId": "1234", "detail": {"deposit": 12000, "moneyLeft": 52000}}
+```
